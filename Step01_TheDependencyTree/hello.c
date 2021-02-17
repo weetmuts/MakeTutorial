@@ -1,8 +1,10 @@
 
 #include<stdio.h>
-#include"hello.h"
+
+void there();
 
 int main()
 {
     puts("Hello World!");
+    there();
 }

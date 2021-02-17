@@ -5,27 +5,27 @@ SOURCES:=hello.c
 # the right hand side will be evaluated. EXTRA expands to the empty string here.
 SOURCES+=there.c $(EXTRA)
 
-# CFLAGS becaomes a laze variable.
+# CFLAGS becomes a lazy (recursive) variable.
 CFLAGS=-Wall
+CFLAGS+=$(EXTRA) -g
 
-# Print "hello.c there.c " and ""
+# Print SOURCES="hello.c there.c " CFLAGS="-Wall  -g"
 $(info FIRST SOURCE="$(SOURCES)" CFLAGS="$(CFLAGS)")
 
 hello: $(SOURCES)
-#   Within the recipe (aka the second phase aka deferred location)
-#   Use the non-lazy SOURCES.
-#   Use the lazy CFLAGS as it was finally defined at the end of the first phase.
-#   This will include the late setting of the EXTRA value.
+#   Within the recipe (during the second phase, aka deferred location)
+#   SOURCES expand to "hello.c there.c " and CFLAGS expand to "-Wall -Waddress -g"
 	gcc $(SOURCES) $(CFLAGS) -o $@
 
-CFLAGS+=$(EXTRA) -g
 EXTRA=-Waddress
 
 # The fully evaluated SOURCES is still printed as "hello.c there.c"
 # since the setting of EXTRA cannot change its value.
 # However the CFLAGS is lazy and will recursively expand to include
-# the current setting of EXTRA. This it will print as "-Wall -Waddress -g"
-$(info SECOND SOURCE="$(SOURCES)" CFLAGS="$(CFLAGS)")
+# the current setting of EXTRA. Thus it will print as CFLAGS="-Wall -Waddress -g"
+$(info SECOND SOURCES="$(SOURCES)" CFLAGS="$(CFLAGS)")
+
+# The values of SOURCES, CFLAGS and EXTRA are now carried into the deferred evaluations inside the recipes.
 
 clean:
 	rm -f hello
