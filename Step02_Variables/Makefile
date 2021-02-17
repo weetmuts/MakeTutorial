@@ -27,7 +27,7 @@ hello: $(SOURCES)
 #   The recipe rule body is the deferred location so it will be evaulated
 #   after the first imperative makefile phase is completed. Therefore
 #   SOURCES will eventually evaluate to "hello.c there.c"
-	gcc $(SOURCES) -o $@
+	gcc $(SOURCES) -o hello
 #   To confirm that the dependencies are the somewhat broken, we
 #   can either do "make -p" and see the "hello: hello.c" rule,
 #   or we can explicitly print all the dependencies $^

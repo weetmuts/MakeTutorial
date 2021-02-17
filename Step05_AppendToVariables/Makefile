@@ -2,7 +2,7 @@
 # SOURCES becomes a fully evaluated variable.
 SOURCES:=hello.c
 # When appending to a fully evaluated (non-recursive, non-lazy) variable
-# the right hand side will be evaulated. EXTRA expandes to the empty string here.
+# the right hand side will be evaluated. EXTRA expands to the empty string here.
 SOURCES+=there.c $(EXTRA)
 
 # CFLAGS becaomes a laze variable.

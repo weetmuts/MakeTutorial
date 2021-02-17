@@ -42,7 +42,18 @@ needs to be updated. Only then are the necessary recipes executed.
 
 Read [Step01_TheDependencyTree/Makefile](Step01_TheDependencyTree/Makefile)
 
-## Step 02 automatic variables
+## Step 02 variables (lazy/evaluated variables and immediate/deferred locations)
+
+Variables are evaluated either during the first phase (immediate
+locations) or the second phase (deferred locations).  Also each
+variable can be lazy or fully evaluated already.
+
+If you understand this, then you have grasped the most complex part of
+Make already! Its downhill from now. Ok a lot of details, but still downhill. :smile:
+
+Read [Step02_Variables/Makefile](Step04_Variables/Makefile)
+
+## Step 03 automatic variables
 
 All make variables start with $. There are several automatic variables that can be
 used in recipes. They are called automatic variables because they are automatically
@@ -50,7 +61,7 @@ assigned before the recipe is evaulated.
 
 Read [Step02_AutomaticVariables/Makefile](Step02_AutomaticVariables/Makefile)
 
-## Step 03 pattern rules
+## Step 04 pattern rules
 
 You can define a pattern rule to tell make that if it needs to construct
 `foo.o` it should look for `foo.c`. Or to build `lib/foo.js` it should
@@ -58,20 +69,15 @@ transpile from `src/foo.ts`.
 
 Read [Step03_PatternRules/Makefile](Step03_PatternRules/Makefile)
 
-## Step 04 variables (lazy/evaluated variables and immediate/deferred locations)
-
-Variables are evaluated either during the first phase (immediate
-locations) or the second phase (deferred locations).  Also each
-variable can be lazy or fully evaluated already.
-
-If you understand this, then you have grasped the most complex part of
-Make already!
-
-Read [Step04_DollarsDollars/Makefile](Step04_DollarsDollars/Makefile)
-
 ## Step 05 Append to variables
 
 You can append to variables. An append will preserve laziness and
 preserve fully evaluated variables.
 
-Read [Step05_AppendDollars/Makefile](Step05_AppendDollars/Makefile)
+Read [Step05_AppendToVariables/Makefile](Step05_AppendToVariagles/Makefile)
+
+## Step 06 Create variable names by expanding other variables.
+
+Variable names can be constructed through normal variable evaluation.
+
+Read [Step06_DynamicVariableNames/Makefile](Step06_DynamicVariableNames/Makefile)
