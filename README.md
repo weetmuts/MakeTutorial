@@ -30,21 +30,48 @@ This is a generic problem solver that can be adjusted for many situations.
 
 # Lessons
 
-## Step 01
+## Step 01 the phases
 
-Two phases: first the imperative phase builds a dependency tree,
-second the tree is evaluated and recipes are executed if there is a need.
+Understand the two phases when executing a makefile.
+First the makefile is executed imperatively from the first line to the last.
+During this phase a dependency tree (with recipes) is built.
 
-## Step 02
+Secondly the dependency tree is evaluated to see if the desired target
+(either specified on the command line, or the first in the makefile)
+needs to be updated. Only then are the necessary recipes executed.
 
-Make variables start with $, and there automatic variables that can be
-used in recipes.
+Read [Step01_TheDependencyTree/Makefile](Step01_TheDependencyTree/Makefile)
 
-## Step 03
+## Step 02 automatic variables
 
-Pattern rules are used to automatically generate foo.o from foo.c
+All make variables start with $. There are several automatic variables that can be
+used in recipes. They are called automatic variables because they are automatically
+assigned before the recipe is evaulated.
 
-## Step 04
+Read [Step02_AutomaticVariables/Makefile](Step02_AutomaticVariables/Makefile)
 
-Variables are evaluated in immediate locations or deferred locations.
-Each variable can be lazy or already evaluated.
+## Step 03 pattern rules
+
+You can define a pattern rule to tell make that if it needs to construct
+`foo.o` it should look for `foo.c`. Or to build `lib/foo.js` it should
+transpile from `src/foo.ts`.
+
+Read [Step03_PatternRules/Makefile](Step03_PatternRules/Makefile)
+
+## Step 04 variables (lazy/evaluated variables and immediate/deferred locations)
+
+Variables are evaluated either during the first phase (immediate
+locations) or the second phase (deferred locations).  Also each
+variable can be lazy or fully evaluated already.
+
+If you understand this, then you have grasped the most complex part of
+Make already!
+
+Read [Step04_DollarsDollars/Makefile](Step04_DollarsDollars/Makefile)
+
+## Step 05 Append to variables
+
+You can append to variables. An append will preserve laziness and
+preserve fully evaluated variables.
+
+Read [Step05_AppendDollars/Makefile](Step05_AppendDollars/Makefile)
