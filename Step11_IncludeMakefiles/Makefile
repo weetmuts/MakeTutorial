@@ -18,7 +18,8 @@ include make/Log.mk
 include make/ListSymbols.mk
 
 # Create a list of the object files from the source files.
-OBJECT_FILES=$(subst .c,.o,$(wildcard *.c))
+OBJECT_FILES:=$(subst .c,.o,$(wildcard *.c))
+# We have now calculated OBJECT_FILES to be "hello.o there.o"
 
 all: hello symbols_listing.txt
 	@$(call LOG_INFO_FRAMED,"Build completed")
@@ -33,6 +34,7 @@ hello: $(OBJECT_FILES)
 # which all can depend upon above.
 $(eval $(call ListSymbols,symbols_listing.txt,$(OBJECT_FILES)))
 
+# A rule to create the o files from a source file.
 %.o : %.c
 	@$(call LOG_INFO,"Compiling $@")
 	@$(call LOG_VERBOSE,"from source $<")
