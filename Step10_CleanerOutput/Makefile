@@ -21,7 +21,7 @@ endif
 # Or you can specify: make LOG=trace
 ifeq ($(LOG),trace)
     AT:=
-	MAKEFLAGS+=-d
+    MAKEFLAGS+=-d
 endif
 
 all: hello
