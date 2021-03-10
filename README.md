@@ -97,3 +97,12 @@ Read [Step05_AppendToVariables/Makefile](Step05_AppendToVariables/Makefile)
 Variable names can be constructed through normal variable evaluation.
 
 Read [Step06_DynamicVariableNames/Makefile](Step06_DynamicVariableNames/Makefile)
+
+## Step 07 Macro calls
+
+A variable can be instatiated using the $(call VAR,arg1,arg2,arg3...)
+
+You can define variables with multiline content using define X ... endef
+
+You can eval the expanded variable $(eval $(call VAR,x,y)) to have
+a macro create a new rule.
