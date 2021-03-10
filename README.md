@@ -114,3 +114,10 @@ Read [Step07_MacroCalls/Makefile](Step07_MacroCalls/Makefile)
 There are many builting GNU make functions that are very useful.
 
 Read [Step08_BuiltinFunctions/Makefile](Step08_BuiltinFunctions/Makefile)
+
+## Step 09 As a curiosity, you can replace the shell command and the recipe marker.
+
+You can for example use python instead of bash. But please, do not use this,
+unless you have a very very very good reason for doing so.
+
+Read [Step09_DifferentShell/Makefile](Step09_DifferentShell/Makefile)
