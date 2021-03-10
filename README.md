@@ -129,3 +129,11 @@ printing what is happening, not exactly how! But add "make LOG=debug"
 to see every build command or add "make LOG=trace" for crazy amount of info.
 
 Read [Step10_CleanerOutput/Makefile](Step10_CleanerOutput/Makefile)
+
+## Step 11 Include makefiles to re-use code for building.
+
+You can easily include other makefiles. However do not put global targets
+like all: clean: build: etc inside the included makefiles since
+this will make it hard to figure out how the build works.
+
+Read [Step11_IncludeMakefiles/Makefile](Step11_IncludeMakefiles/Makefile)

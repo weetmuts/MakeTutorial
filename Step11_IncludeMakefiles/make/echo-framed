@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+function pad {
+    local text="$1"
+    local padchar="$2"
+    local length="$3"
+    local tlen=${#text}
+    local p=""
+    length=$((length-tlen))
+    until [ $length -le 0 ]
+    do
+        p="$p$padchar"
+        ((length=length-1))
+    done
+    echo -n "$p"
+}
+
+function replace {
+    local text="$1"
+    local r="$2"
+    echo "$text" | sed "s/./$2/g"
+}
+
+NOEOL=
+if [ "$1" = "noeol" ]
+then
+   NOEOL=-n
+   shift
+fi
+if [ "$1" = "airy" ]
+then
+   shift
+   echo "  ╭─────────────────────────────────────────────────────────────────╮"
+   echo "  │                                                                 │"
+   if [ ! -z "$1" ] ; then echo "  │  $1$(pad "$1" " " 62) │" ; fi
+   if [ ! -z "$2" ] ; then echo "  │  $2$(pad "$2" " " 62) │" ; fi
+   if [ ! -z "$3" ] ; then echo "  │  $3$(pad "$3" " " 62) │" ; fi
+   if [ ! -z "$4" ] ; then echo "  │  $4$(pad "$4" " " 62) │" ; fi
+   if [ ! -z "$5" ] ; then echo "  │  $5$(pad "$5" " " 62) │" ; fi
+   echo "  │                                                                 │"
+   echo $NOEOL "  ╰─────────────────────────────────────────────────────────────────╯"
+elif [ "$1" = "multiline" ]
+then
+   shift
+   echo "  ┌────┤$1├$(pad "$1" "─" 68)─┐"
+   shift
+   SPACES="                                                                        "
+   while [ ! -z "$1" ]
+   do
+       echo "  │  $1$(pad "$1" " " 72) │"
+       shift
+   done
+   echo $NOEOL "  └───────────────────────────────────────────────────────────────────────────┘"
+elif [ "$1" = "dense" ]
+then
+   shift
+   echo "  ┌─$(replace "$1" "─")─┐"
+   echo "  │ ${1} │"
+   echo $NOEOL "  └─$(replace "$1" "─")─┘"
+elif [ "$1" = "oneliner" ]
+then
+   shift
+   echo $NOEOL "  ▁▂▃▄▅▆▇██ $1 ██▇▆▅▄▃▂▁"
+fi
