@@ -140,7 +140,7 @@ Read [Step11_IncludeMakefiles/Makefile](Step11_IncludeMakefiles/Makefile)
 
 ## Step 12 Now you can understand a simple build of an Android app.
 
-You now know more than enough to understand a build system that create
+You now know more than enough to understand a build system that creates
 an Android app from scratch from the GNU/Linux command line.
 
 There are only two Makefiles, one to fetch the Android SDK and
