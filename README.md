@@ -121,3 +121,11 @@ You can for example use python instead of bash. But please, do not use this,
 unless you have a very very very good reason for doing so.
 
 Read [Step09_DifferentShell/Makefile](Step09_DifferentShell/Makefile)
+
+## Step 10 Cleaner output from the makefile, add LOG level debug and trace.
+
+When running just "make" the output should not be overly detailed, preferably just
+printing what is happening, not exactly how! But add "make LOG=debug"
+to see every build command or add "make LOG=trace" for crazy amount of info.
+
+Read [Step10_CleanerOutput/Makefile](Step10_CleanerOutput/Makefile)
