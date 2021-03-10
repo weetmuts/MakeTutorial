@@ -106,3 +106,11 @@ You can define variables with multiline content using define X ... endef
 
 You can eval the expanded variable $(eval $(call VAR,x,y)) to have
 a macro create a new rule.
+
+Read [Step07_MacroCalls/Makefile](Step07_MacroCalls/Makefile)
+
+## Step 08 Builtin make functions
+
+There are many builting GNU make functions that are very useful.
+
+Read [Step08_BuiltinFunctions/Makefile](Step08_BuiltinFunctions/Makefile)
