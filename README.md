@@ -137,3 +137,13 @@ like all: clean: build: etc inside the included makefiles since
 this will make it hard to figure out how the build works.
 
 Read [Step11_IncludeMakefiles/Makefile](Step11_IncludeMakefiles/Makefile)
+
+## Step 12 Now you can understand a simple build of an Android app.
+
+You now know more than enough to understand a build system that create
+an Android app from scratch from the GNU/Linux command line.
+
+There are only two Makefiles, one to fetch the Android SDK and
+one to build the app.apk which can be loaded into your phone.
+
+Read [https://github.com/weetmuts/AndroidExperiments](https://github.com/weetmuts/AndroidExperiments)
