@@ -5,7 +5,7 @@ MAKEFLAGS += --no-builtin-rules
 # A pattern rule is applied to any target that does not have any explicit rule.
 # https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html
 
-all: hello list_of_strings.txt hello.lines
+all: hello list_of_strings.txt hello.lines subset
 .PHONY: all
 
 # This rule is for demonstration purposes only, usually the rule is: %.o : %c to
@@ -22,8 +22,17 @@ list_of_strings.txt: hello.c Makefile
 # Easy correlation from xyz.lines to xyz.c
 %.lines: %.c ; wc -l $< > $@
 
+# You can apply a tailored pattern rule for only a subset of all files.
+# The desired subset here is a single file: subset/hello.o, but the subset
+# can be any number of files. Usually stored in a variable.
+subset/hello.o: subset/%.o : %.c
+	mkdir -p subset
+	gcc -c $< -o $@
+
+subset: subset/hello.o
+
 clean:
-	rm -f hello list_of_strings.txt hello.lines
+	rm -rf hello list_of_strings.txt hello.lines subset
 .PHONY: clean
 
 hello : hello.h
