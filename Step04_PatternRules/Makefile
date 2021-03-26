@@ -25,6 +25,9 @@ list_of_strings.txt: hello.c Makefile
 # You can apply a tailored pattern rule for only a subset of all files.
 # The desired subset here is a single file: subset/hello.o, but the subset
 # can be any number of files. Usually stored in a variable.
+# This is called a static pattern rule: https://www.gnu.org/software/make/manual/html_node/Static-Pattern.html
+# Try to use this if you can, since it will be more efficient than having all implicit rules.
+# Also there is less risk that you will get confused with pattern rule will be applied by make.
 subset/hello.o: subset/%.o : %.c
 	mkdir -p subset
 	gcc -c $< -o $@
