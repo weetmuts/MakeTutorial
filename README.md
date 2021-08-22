@@ -146,4 +146,4 @@ an Android app from scratch from the GNU/Linux command line.
 There are only two Makefiles, one to fetch the Android SDK and
 one to build the app.apk which can be loaded into your phone.
 
-Read [https://github.com/weetmuts/AndroidExperiments](https://github.com/weetmuts/AndroidExperiments)
+Read [https://github.com/weetmuts/SimpleCLIBuildOfAndroidApp](https://github.com/weetmuts/SimpleCLIBuildOfAndroidApp)
